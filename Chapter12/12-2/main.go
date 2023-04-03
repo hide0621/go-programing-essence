@@ -22,14 +22,15 @@ func main() {
 		log.Fatalf("failed creating schema resources: %v", err)
 	}
 
-	// Todoを列挙
-	for _, e := range client.Todo.Query().AllX(context.Background()) {
-		fmt.Println(e.Text)
-	}
-
 	// Todoを作成
 	_, err = client.Todo.Create().SetText("Go言語を学ぶ").Save(context.Background())
 	if err != nil {
 		log.Fatalf("failed creating a todo: %V", err)
 	}
+
+	// Todoを列挙
+	for _, e := range client.Todo.Query().AllX(context.Background()) {
+		fmt.Println(e.Text)
+	}
+
 }
