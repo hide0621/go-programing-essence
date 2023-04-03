@@ -6,6 +6,7 @@ import (
 	"log"
 
 	"go-programing-essence/Chapter12/12-2/ent"
+	"go-programing-essence/Chapter12/12-2/ent/todo"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -23,14 +24,28 @@ func main() {
 	}
 
 	// Todoを作成
-	_, err = client.Todo.Create().SetText("Go言語を学ぶ").Save(context.Background())
+	_, err = client.Todo.Create().SetText("Go言語プログラミングエッセンス").Save(context.Background())
 	if err != nil {
 		log.Fatalf("failed creating a todo: %V", err)
 	}
 
-	// Todoを列挙
+	_, err = client.Todo.Create().SetText("実用Go言語").Save(context.Background())
+	if err != nil {
+		log.Fatalf("failed creating a todo: %V", err)
+	}
+
+	// Todoを列挙（全権選択）
 	for _, e := range client.Todo.Query().AllX(context.Background()) {
 		fmt.Println(e.Text)
+		fmt.Println(e.ID)
 	}
+
+	// Todoを列挙（idで選択）
+	a, err := client.Todo.Query().Where(todo.ID(2)).Only(context.Background())
+	if err != nil {
+		fmt.Printf("failed querying todo: %v", err)
+		return
+	}
+	fmt.Println(a.Text)
 
 }
