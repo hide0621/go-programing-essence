@@ -23,7 +23,7 @@ func main() {
 		log.Fatalf("failed creating schema resources: %v", err)
 	}
 
-	// Todoを作成
+	// Todoを作成(Create)
 	_, err = client.Todo.Create().SetText("Go言語プログラミングエッセンス").Save(context.Background())
 	if err != nil {
 		log.Fatalf("failed creating a todo: %V", err)
@@ -34,18 +34,32 @@ func main() {
 		log.Fatalf("failed creating a todo: %V", err)
 	}
 
-	// Todoを列挙（全権選択）
+	_, err = client.Todo.Create().SetText("詳解Go言語webアプリケーション開発").Save(context.Background())
+	if err != nil {
+		log.Fatalf("failed creating a todo: %V", err)
+	}
+
+	// Todoを列挙（全権選択）(Select)
 	for _, e := range client.Todo.Query().AllX(context.Background()) {
 		fmt.Println(e.Text)
 		fmt.Println(e.ID)
 	}
 
-	// Todoを列挙（idで選択）
-	a, err := client.Todo.Query().Where(todo.ID(2)).Only(context.Background())
+	// Todoを列挙（idで選択）(Select)
+	a, err := client.Todo.Query().Where(todo.ID(3)).Only(context.Background())
 	if err != nil {
 		fmt.Printf("failed querying todo: %v", err)
 		return
 	}
 	fmt.Println(a.Text)
+
+	// Todoを更新（update）
+	b, err := client.Todo.UpdateOneID(3).SetText("APIを作りながら学ぶGo言語中級者への道").Save(context.Background())
+	if err != nil {
+		fmt.Printf("falied uodate todo: %v", err)
+	}
+	fmt.Println(b.Text)
+
+	// Todoを削除（Delete）
 
 }
