@@ -56,10 +56,20 @@ func main() {
 	// Todoを更新（update）
 	b, err := client.Todo.UpdateOneID(3).SetText("APIを作りながら学ぶGo言語中級者への道").Save(context.Background())
 	if err != nil {
-		fmt.Printf("falied uodate todo: %v", err)
+		fmt.Printf("falied update todo: %v", err)
 	}
 	fmt.Println(b.Text)
 
-	// Todoを削除（Delete）
+	// Todoを削除（Delete）成功パターン
+	err = client.Todo.DeleteOneID(3).Exec(context.Background())
+	if err != nil {
+		fmt.Printf("failed delete todo: %v", err)
+	}
+	fmt.Println("idが3番のtodoを削除した")
 
+	// Todoを削除（Delete）失敗パターン
+	err = client.Todo.DeleteOneID(4).Exec(context.Background())
+	if err != nil {
+		fmt.Printf("failed delete todo: %v", err)
+	}
 }
