@@ -22,7 +22,7 @@ const (
 	Pig
 )
 
-func list_iota(a int) {
+func list_iota() {
 	// const (
 	// 	Apple = iota
 	// 	Orange
@@ -65,7 +65,7 @@ func list_iota(a int) {
 
 }
 
-func list_loop(b int) {
+func list_loop() {
 
 outerLoop:
 	for i := 0; i < 5; i++ {
