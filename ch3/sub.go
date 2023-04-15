@@ -26,5 +26,7 @@ func Sub() {
 	// v3.Add3(2)
 	// fmt.Println(v3)
 
-	PrintDetail(123)
+	// PrintDetail(123)
+
+	NewUser("田中", 111)
 }
