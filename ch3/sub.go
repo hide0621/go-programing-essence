@@ -15,7 +15,16 @@ func Sub() {
 
 	// list_struct_showName(&user)
 
-	v := Value(1)
-	v = v.Add(2)
-	fmt.Println(v)
+	// var v Value = 1と同じ意味であり、初期化している
+	v1 := Value(1)
+	v1 = v1.Add1(2)
+	fmt.Println(v1)
+
+	v2 := Value(1)
+	v2.Add2(2)
+	fmt.Println(v2)
+
+	v3 := Value(1)
+	v3.Add3(2)
+	fmt.Println(v3)
 }
