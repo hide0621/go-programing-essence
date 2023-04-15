@@ -1,11 +1,14 @@
-package main
+package ch3
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type Fruit int
 type Animal int
+
+type User struct {
+	Name string
+	Age  int
+}
 
 const (
 	Apple Fruit = iota
@@ -81,10 +84,29 @@ outerLoop:
 	fmt.Println("Done")
 }
 
-func main() {
+func list_slice() {
 
-	list_iota(1)
+	a := []int{1, 2, 3}
+	fmt.Println(a)
 
-	list_loop(1)
+	a = append(a, 4, 5, 6)
+	fmt.Println(a)
 
+	fmt.Printf("aの長さは%d\n", len(a))
+
+}
+
+func list_map() {
+
+	m := map[string]int{
+		"John": 21,
+		"Bob":  18,
+		"Mark": 33,
+	}
+	fmt.Println(m)
+}
+
+func list_struct_showName(u *User) {
+
+	fmt.Println(u.Name)
 }
