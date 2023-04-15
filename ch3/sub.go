@@ -1,7 +1,5 @@
 package ch3
 
-import "fmt"
-
 func Sub() {
 	// list_iota()
 	// list_loop()
@@ -16,15 +14,17 @@ func Sub() {
 	// list_struct_showName(&user)
 
 	// var v Value = 1と同じ意味であり、初期化している
-	v1 := Value(1)
-	v1 = v1.Add1(2)
-	fmt.Println(v1)
+	// v1 := Value(1)
+	// v1 = v1.Add1(2)
+	// fmt.Println(v1)
 
-	v2 := Value(1)
-	v2.Add2(2)
-	fmt.Println(v2)
+	// v2 := Value(1)
+	// v2.Add2(2)
+	// fmt.Println(v2)
 
-	v3 := Value(1)
-	v3.Add3(2)
-	fmt.Println(v3)
+	// v3 := Value(1)
+	// v3.Add3(2)
+	// fmt.Println(v3)
+
+	PrintDetail(123)
 }
