@@ -30,9 +30,13 @@ func Sub() {
 
 	// NewUser("田中", 111)
 
-	dog := Dog{}
-	DoSpeak(&dog)
+	// dog := Dog{}
+	// DoSpeak(&dog)
 
-	cat := Cat{}
-	DoSpeak(&cat)
+	// cat := Cat{}
+	// DoSpeak(&cat)
+
+	// SampleDefer()
+
+	doSomething()
 }
