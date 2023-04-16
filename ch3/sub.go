@@ -28,5 +28,11 @@ func Sub() {
 
 	// PrintDetail(123)
 
-	NewUser("田中", 111)
+	// NewUser("田中", 111)
+
+	dog := Dog{}
+	DoSpeak(&dog)
+
+	cat := Cat{}
+	DoSpeak(&cat)
 }

@@ -2,14 +2,24 @@ package ch3
 
 import "fmt"
 
-func PrintDetail(v interface{}) {
+type Speaker interface {
+	Speak() error
+}
 
-	switch t := v.(type) {
-	case int, int32, int64:
-		fmt.Println("int/int32/int64 型:", t)
-	case string:
-		fmt.Println("string型:", t)
-	default:
-		fmt.Println("知らない型")
-	}
+type Dog struct{}
+
+func (d *Dog) Speak() error {
+	fmt.Println("BowWow")
+	return nil
+}
+
+type Cat struct{}
+
+func (c *Cat) Speak() error {
+	fmt.Println("Meow")
+	return nil
+}
+
+func DoSpeak(s Speaker) error {
+	return s.Speak()
 }
