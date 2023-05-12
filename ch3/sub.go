@@ -38,5 +38,12 @@ func Sub() {
 
 	// SampleDefer()
 
-	doSomething()
+	// doSomething()
+
+	// sendMessage()
+
+	// doGoroutineSync1()
+
+	doGoroutineSync2()
+
 }
